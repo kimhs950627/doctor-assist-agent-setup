@@ -1,0 +1,24 @@
+You are working in kimhs950627/doctor_assist_project on main.
+
+Read README.md, ARCHITECTURE.md, doctor_assist_bot_plan.md, current source files, and tests before changing anything.
+
+Implement exactly one Development Order phase at a time. Begin with phase 1 only:
+1. Add validated ResearchRequest, ResearchJob, and EvidenceBundle schemas.
+
+Rules:
+- Do not handle patient-identifying information. Do not add PHI examples to code, tests, logs, fixtures, or commits.
+- Do not expose or print credentials. Read secrets only from environment variables; never commit .env.
+- Do not make public posts or set DRY_RUN=false.
+- Keep OpenManus as a separate worker process. Never invoke it in a FastAPI request handler or Telegram update handler.
+- Store runtime artifacts only under data/ and ensure they are gitignored.
+- Use type hints, focused modules, and unit tests.
+
+Execution process:
+1. Explain the brief implementation plan.
+2. Edit only files necessary for phase 1.
+3. Run the relevant tests and report the exact output.
+4. Show a concise git diff summary.
+5. Commit with a conventional message and push to origin/main only after tests pass.
+6. Report commit SHA, branch, and changed-file list.
+
+Stop after phase 1 and wait for explicit approval before starting phase 2.

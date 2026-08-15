@@ -1,0 +1,30 @@
+services:
+  openhands:
+    image: docker.all-hands.dev/all-hands-ai/openhands:0.75
+    container_name: doctor-assist-openhands
+    ports:
+      - "3000:3000"
+    environment:
+      SANDBOX_RUNTIME_CONTAINER_IMAGE: docker.all-hands.dev/all-hands-ai/runtime:0.75-nikolaik
+      LOG_ALL_EVENTS: "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - openhands_state:/.openhands
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  openmanus:
+    image: python:3.12-slim
+    container_name: doctor-assist-openmanus
+    working_dir: /workspace
+    command: ["sh", "-c", "echo 'OpenManus worker placeholder: install and pin a reviewed OpenManus image before production.'; tail -f /dev/null"]
+    env_file:
+      - .env
+    volumes:
+      - openmanus_workspace:/workspace
+    restart: unless-stopped
+
+volumes:
+  openhands_state:
+  openmanus_workspace:
